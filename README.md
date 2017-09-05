@@ -46,7 +46,8 @@ public Zhexiantu(Context context) {
             app:linechart_color="@color/color2"
             app:linechart_bg="@color/color13"/>
 ```
-*  **2.重写 `onMeasure` 方法，计算获取画布的宽高并计算尺 X、Y轴的区间间隔**
+另外，附上 `Paint` 属性设置的详解 [http://wuxiaolong.me/2016/08/20/Paint/](http://wuxiaolong.me/2016/08/20/Paint/ "http://wuxiaolong.me/2016/08/20/Paint/")
+*  **2.重写 `onMeasure` 方法，计算获取画布的宽高并计算尺 X、Y轴的区间间隔**
 ```
  @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
