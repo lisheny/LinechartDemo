@@ -106,13 +106,22 @@ public class LinechartView extends View {
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-        int mode = MeasureSpec.getMode(heightMeasureSpec);
+        //这里的 mode 只使用了宽的值，要求严谨的活应该宽高都应该考虑进去，比如：
+//        int widthSpecMode = MeasureSpec.getMode(widthMeasureSpec);
+//        int widthSpecSize = MeasureSpec.getSize(widthMeasureSpec);
+//        int heightSpecMode = MeasureSpec.getMode(heightMeasureSpec);
+//        int heightSpecSize = MeasureSpec.getSize(heightMeasureSpec);
+//        if (widthSpecMode == MeasureSpec.AT_MOST && heightSpecMode == MeasureSpec.AT_MOST) {
+//        } else if (widthSpecMode == MeasureSpec.AT_MOST) {
+//        } else if (heightSpecMode == MeasureSpec.AT_MOST) {
+//        }
+        int mode = MeasureSpec.getMode(widthMeasureSpec);
         switch (mode) {
             case MeasureSpec.AT_MOST:                             //(wrap_content)
                 mWidth = MeasureSpec.getSize(widthMeasureSpec);
                 mHeigt = 3 * mWidth / 5;
                 break;
-            case MeasureSpec.EXACTLY:                             //固定尺寸（如100dp）
+            case MeasureSpec.EXACTLY:                             //固定尺寸（如100dp、match_parent）,
                 mWidth = MeasureSpec.getSize(widthMeasureSpec);
                 mHeigt = MeasureSpec.getSize(heightMeasureSpec);
                 break;
